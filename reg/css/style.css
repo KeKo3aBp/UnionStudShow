@@ -1,0 +1,113 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);@import url(https://fonts.googleapis.com/css?family=Roboto:400,500);
+body{    font: 62.5% Open Sans, Freesans, sans-serif;
+    background: #2c3338;}
+.login-wrapper {
+margin-left: 600px; margin-right: 600px; margin-top: 250px;  width: 250px;
+}
+form h1{    color:#dedede;
+    font-size:2.8em;    font-weight: normal;
+    letter-spacing: -1px;    font-family: Roboto;
+}
+form h1 span{    font-weight: 500;
+    letter-spacing: -1px;    
+}
+form input{    border:none;
+    margin:0;}
+form .input-row{
+    margin:2em 0;    overflow:hidden;
+    margin-bottom: 5px;}
+form .icon{
+    font-size:1.4em;    background:#FFFFFF;
+    padding:0.8em;    border-left:4px solid #ea4c88;
+    color:#9f9f9f;    float:left;
+}
+form input[type="text"],form input[type="password"] {    padding:0.8em 0.8em 0.8em 0;
+    font-size:1.4em;    color:#000000; /* Changed color to black */
+    width:250px;}
+form input[type="text"]:focus,form input[type="password"]:focus {
+    outline:0;}
+form input[type="submit"]{
+    border:none;    background:#ea4c88;
+    color:#FFFFFF;    font-size:1.6em;
+    padding:0.7em 1.2em;    opacity: 1;
+    transition: opacity .5s ease-in-out;    -moz-transition: opacity .5s ease-in-out;
+    -webkit-transition: opacity .5s ease-in-out;    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;    border-radius: 2px;
+}
+form input[type="submit"]:hover {
+    background:#c62a65;    opacity: 0.8;
+}
+form .reset{    margin-left:1em;
+    color:#FFFFFF;
+    font-size: 1.4em;}
+form .reset a{
+    color:#FFFFFF;}
+form .reset a:hover{
+    text-decoration: none;}
+form .input-row:first-child {
+    margin-top: 5px;}
+form .input-row:last-child {
+    margin-bottom: 0;}
+
+.login-wrapper .form {  background: #fff;
+  border-radius: 10px;  padding: 20px;
+}
+.login-wrapper .form input[type="text"],.login-wrapper .form input[type="password"],
+.login-wrapper .form input[type="email"] {  background: #f1f1f1;
+  border-radius: 5px;  padding: 10px;
+  width: 93%;  margin-bottom: 10px;
+  border: none;  color: #000000; /* Added color: black */
+}
+.login-wrapper .form input[type="submit"] {  border-radius: 20px;
+}
+.login-wrapper .form h2 {  text-align: center;
+}
+.login-wrapper:nth-child(1) {  float: right;
+  margin-left: 20px;}
+.login-wrapper:nth-child(2) {
+  float: left;  margin-right: 20px;
+}form input[type="text"], form input[type="password"], form input[type="email"] {
+    padding: 0.8em 0.8em 0.8em 0;    font-size: 1.4em;
+    color: #c2c2c2;    width: 275px;
+    margin-bottom: 5px;}
+form input[type="submit"]:hover,form .reset a:hover {
+    background: #c62a65;    opacity: 0.8;
+    cursor: pointer;}
+html:
+<!DOCTYPE html>
+<html lang="RU">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewpost" content="width=device-width, initial-scale=1.0">
+    <title>UnionBiz</title>
+    <link rel="shortcut icon" href="images/ablema-1.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="login-wrapper">
+    <div class="form">
+      <h2>Регистрация</h2>
+      <form id="register-form" method="post">
+        <input type="text" placeholder="Логин" name="login">
+        <input type="password" placeholder="Пароль" name="pass">
+        <input type="password" placeholder="Повторите пароль" name="repeatpass">
+        <input type="email" placeholder="Email" name="email">
+        <input type="submit" value="Зарегистрироваться" class="submit">
+      </form>
+    </div>
+  </div>
+  
+  <div class="login-wrapper">
+    <div class="form">
+      <h2>Вход</h2>
+      <form id="login-form" method="post">
+        <input type="text" placeholder="Логин" name="login">
+        <input type="password" placeholder="Пароль" name="pass">
+        <input type="submit" value="Войти" class="submit">
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Обработчик нажатия кнопки регистрации

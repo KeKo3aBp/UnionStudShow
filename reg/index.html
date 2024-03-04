@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="RU">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewpost" content="width=device-width, initial-scale=1.0">
+    <title>UnionBiz</title>
+    <link rel="shortcut icon" href="images/ablema-1.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="login-wrapper">
+    <div class="form">
+      <h2>Регистрация</h2>
+      <form id="register-form" method="post">
+        <input type="text" placeholder="Логин" name="login">
+        <input type="password" placeholder="Пароль" name="pass">
+        <input type="password" placeholder="Повторите пароль" name="repeatpass">
+        <input type="email" placeholder="Email" name="email">
+        <input type="submit" value="Зарегистрироваться" class="submit">
+      </form>
+    </div>
+  </div>
+  
+  <div class="login-wrapper">
+    <div class="form">
+      <h2>Вход</h2>
+      <form id="login-form" method="post">
+        <input type="text" placeholder="Логин" name="login">
+        <input type="password" placeholder="Пароль" name="pass">
+        <input type="submit" value="Войти" class="submit">
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Обработчик нажатия кнопки регистрации
+    document.getElementById("register-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Отменить отправку формы по умолчанию
+        var form = event.target;
+        var data = new FormData(form);
+
+        // Отправить данные на сервер
+        fetch("register.php", {
+            method: "POST",
+            body: data
+        })
+        .then(response => response.text())
+        .then(result => {
+            alert(result); // Показать результат регистрации
+            window.location.href = "page3.html"; // Перенаправить на page3
+        });
+    });
+
+    // Обработчик нажатия кнопки входа
+    document.getElementById("login-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Отменить отправку формы по умолчанию
+        var form = event.target;
+        var data = new FormData(form);
+
+        // Отправить данные на сервер
+        fetch("login.php", {
+            method: "POST",
+            body: data
+        })
+        .then(response => response.text())
+        .then(result => {
+            alert(result); // Показать результат входа
+            window.location.href = "../page3/index.html"; // Перенаправить на page3
+        });
+    });
+  </script>
+</body>
+</html>

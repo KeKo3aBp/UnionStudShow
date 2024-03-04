@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="RU">
+  <div class="container">
+    <head>
+      <title>UnionBiz</title>
+      <meta charset="utf-8" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+      />
+      <link rel="shortcut icon" href="../images/ablema.png" type="image/png" />
+    </head>
+    <body>
+    <form
+      id="contact"
+      action="telegrammform/form_handler.php"
+      method="post"
+      autocomplete="off"
+      enctype="multipart/form-data"
+    >
+      <link rel="stylesheet" href="css/style.css" />
+      <h3>Форма для обратной связи</h3>
+      <fieldset>
+        <input
+          placeholder="Введите своё ФИО"
+          type="text"
+          tabindex="1"
+          required
+          autofocus
+          autocomplete="off"
+          name="text"
+        />
+      </fieldset>
+      <fieldset>
+        <input
+          placeholder="ИНН/ОГРН"
+          type="text"
+          tabindex="2"
+          required
+          autocomplete="off"
+          name="inn"
+        />
+      </fieldset>
+      <fieldset>
+        <input
+          placeholder="Email"
+          type="email"
+          tabindex="3"
+          required
+          autocomplete="off"
+          name="email"
+        />
+      </fieldset>
+      <fieldset>
+        <select name="category" tabindex="4" required autocomplete="off">
+          <option value="" disabled selected hidden>
+            Выберите чем вам помочь
+          </option>
+          <option value="Хочу сайт">Хочу сайт</option>
+          <option value="Категория 2">Категория 2</option>
+          <option value="Категория 3">Категория 3</option>
+          <option value="Категория 4">Категория 4</option>
+          <option value="Категория 5">Категория 5</option>
+        </select>
+      </fieldset>
+      <fieldset>
+        <textarea
+          placeholder="Опишите чем вам помочь"
+          tabindex="5"
+          required
+          autocomplete="off"
+          name="description"
+        ></textarea>
+      </fieldset>
+      <fieldset>
+        <button type="submit" id="contact-submit" disabled>Отправить</button>
+      </fieldset>
+    </form>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("#contact").on("submit", function (e) {
+        e.preventDefault();
+        var formData = $(this).serialize();
+        $.ajax({
+          url: "telegrammform/form_handler.php",
+          type: "POST",
+          data: formData,
+          success: function () {
+            alert("Ваша заявка была отправлена");
+            window.location.href = "../page3/index.html";
+          },
+          error: function () {
+            alert("Ошибка при отправке заявки");
+          }
+        });
+      });
+
+      $("#contact input, #contact select, #contact textarea").on(
+        "input",
+        function () {
+          var inputs = $("#contact input, #contact select, #contact textarea");
+          var isFilled = true;
+          inputs.each(function () {
+            if ($(this).val() === "") {
+              isFilled = false;
+              return false;
+            }
+          });
+          if (isFilled) {
+            $("#contact-submit").prop("disabled", false);
+          } else {
+            $("#contact-submit").prop("disabled", true);
+          }
+        }
+      );
+    });
+  </script>
+  </body>
+</html>
